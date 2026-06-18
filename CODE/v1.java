@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.util.Random;
+import java.util.Locale;
 
 public class v1 {
     public static void main(String[] args) throws InterruptedException {
@@ -9,6 +10,11 @@ public class v1 {
         int earnings = 50;
         int cash = 40;
         int cost = 2;
+        int givem = 1000000;
+        int remcom = cost;
+        int endcom = 10000000;
+
+
 
         Thread.sleep(1000);
         System.out.println("The Text Slots Game!");
@@ -22,11 +28,12 @@ public class v1 {
             System.out.println("Wallet: " + cash);
             Thread.sleep(200);
             System.out.printf("CHOICE: ");
-            char a = Input.next().charAt(0);
-            char input = Character.toUpperCase(a);
+            String a = Input.next();
+            String input = a.toUpperCase(Locale.ROOT);
+            //String input = Character.toUpperCase(a);
 
 
-            if (input == 'S' && cash >= 2) {
+            if (input.equals("S") && cash >= 2) {
                 Thread.sleep(500);
                 System.out.println("\nTO WIN YOU NEED TO MATCH ALL NUMBERS");
                 int number1 = random.nextInt(7);
@@ -57,23 +64,40 @@ public class v1 {
             }
 
 
-            if (input == 'U' && earnings >= 20) {
-                if (earnings >= 200) {
+            else if (input.equals("U") && earnings >= 20) {
+                if (earnings <= 200) {
                     Thread.sleep(500);
                     System.out.println("You have increased your earnings!\n");
                     earnings += 20;
                     cash -= 20;
                 }
-                else if (earnings <= 200) {
+                else if (earnings >= 200) {
                     Thread.sleep(500);
                     System.out.println("You have reached the maximum.");
                 }
             }
 
+            else if (input.equals("GIVEM")) {
+                System.out.println("\nDEVELOPER COMMAND 'GIVEM' USED. +1,000,000.\n");
+                cash += givem;
+            }
+
+            else if (input.equals("REM")) {
+                System.out.println("\nDEVELOPER COMMAND 'REM' USED. REMOVING SPIN COSTS.\n");
+                cost -= remcom;
+            }
+
+            else if (input.equals("END")) {
+                System.out.println("\nDEVELOPER COMMAND 'END' USED. REMOVING ALL CASH FROM WALLET.\n");
+                cash -= endcom;
+            }
+
             else {
                 Thread.sleep(500);
-                System.out.println("INVALID INPUT.\n");
+                System.out.println(input + " IS INVALID INPUT OR YOU HAVE LESS THAN REQUIRED FOR IT.\n");
             }
+
+
 
 
             if (cash <= 7) {
@@ -97,7 +121,7 @@ public class v1 {
                 }
             }
 
-            if (cash >= 200000) {
+            else if (cash >= 2000000) {
                 Thread.sleep(500);
                 System.out.println("\nYou have officially reached $2,000,000+. You are now a rich man and won!");
                 break;
