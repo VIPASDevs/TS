@@ -34,7 +34,7 @@ public class v1 {
             //String input = Character.toUpperCase(a);
 
 
-            if (input.equals("S") && cash >= 2) {
+            if (input.equals("S") && cash <= 2) {
                 Thread.sleep(500);
                 System.out.println("\nTO WIN YOU NEED TO MATCH ALL NUMBERS");
                 int number1 = random.nextInt(7);
