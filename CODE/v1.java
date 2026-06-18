@@ -6,7 +6,7 @@ public class v1 {
         Scanner Input = new Scanner(System.in);
         Random random = new Random();
         int jackpot = 1000000;
-        int earnings = 200;
+        int earnings = 50;
         int cash = 40;
         int cost = 2;
 
@@ -17,7 +17,8 @@ public class v1 {
 
         while (true) {
             Thread.sleep(500);
-            System.out.println("[S]pin [$" + cost + "] or [U]pgrade Earnings [-$20 | +20 on earnings]");
+            System.out.println("EARNINGS: " + earnings);
+            System.out.println("[S]pin [$" + cost + "] or [U]pgrade Earnings [-$20 | +10 on earnings]");
             System.out.println("Wallet: " + cash);
             Thread.sleep(200);
             System.out.printf("CHOICE: ");
@@ -61,6 +62,7 @@ public class v1 {
                     Thread.sleep(500);
                     System.out.println("You have increased your earnings!\n");
                     earnings += 20;
+                    cash -= 20;
                 }
                 else if (earnings <= 200) {
                     Thread.sleep(500);
@@ -68,16 +70,36 @@ public class v1 {
                 }
             }
 
+            else {
+                Thread.sleep(500);
+                System.out.println("INVALID INPUT.\n");
+            }
+
 
             if (cash <= 7) {
                 Thread.sleep(500);
                 System.out.println("Well... You are out of cash...");
-                break;
+                System.out.println("Want to borrow $40 for -$5 off your earnings? Y/N  [DEV HERE: This is to make it easier]");
+                System.out.printf("CHOICE: ");
+                char b = Input.next().charAt(0);
+                char sinput = Character.toUpperCase(b);
+
+                if (sinput == 'Y') {
+                    Thread.sleep(500);
+                    System.out.println("\nYou traded your $5 of your total earnings for 40 more dollars.");
+                    cash += 40;
+                    earnings -= 5;
+                }
+                else {
+                    Thread.sleep(500);
+                    System.out.println("\nNo? Alright... Well, you are out of money, you now have to leave ...");
+                    break;
+                }
             }
 
             if (cash >= 200000) {
                 Thread.sleep(500);
-                System.out.println("You have officially reached $2,000,000+. You are now a rich man and won!");
+                System.out.println("\nYou have officially reached $2,000,000+. You are now a rich man and won!");
                 break;
             }
         }
