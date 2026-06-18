@@ -13,6 +13,7 @@ public class v1 {
         int givem = 1000000;
         int remcom = cost;
         int endcom = 10000000;
+        int upcom = cost;
 
 
 
@@ -90,6 +91,11 @@ public class v1 {
             else if (input.equals("END")) {
                 System.out.println("\nDEVELOPER COMMAND 'END' USED. REMOVING ALL CASH FROM WALLET.\n");
                 cash -= endcom;
+            }
+
+            else if (input.equals("UP")) {
+                System.out.println("\nDEVELOPER COMMAND 'UP' USED. UPPING COST BY " + upcom + ".\n");
+                cost += upcom;
             }
 
             else {
