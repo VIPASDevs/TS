@@ -1,4 +1,4 @@
-- This game is a slots game. Please do not change the variables to make the game overly easy, challenge yourself, you can handle it. Changes to the variables are allowed (per the license), I just do not want you to so gameplay-wise. If you wish so, you can.
+- This game is a slots game. Please do not change the variables to make the game overly easy, challenge yourself, you can handle it. Changes to the variables are allowed (per the license), I just do not want you to do so gameplay-wise. If you wish so, you can.
 
 - This game is completely Open Source, so feel free to fork and do whatever. If you use parts of my code, you can use it in proprietary software as per the license allows.
 
