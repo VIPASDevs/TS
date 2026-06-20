@@ -1,6 +1,9 @@
 import java.util.Locale;
 import java.util.Scanner;
 
+//AMOUNT OF DEBUG TOOLS: 6
+//UPDATE THE ABOVE LINE EVERY TIME YOU ADD A DEBUG TOOL.
+
 public class commands {
     public static void cheats() throws InterruptedException {
         Scanner cominput = new Scanner(System.in);
@@ -9,34 +12,34 @@ public class commands {
 
 
         if (cinput.equals("HELP")) {
-            System.out.println("\nGIVEM, REM, END, CASHADD, CASHOFF");
+            System.out.println("\n1. GIVEM / 2. REM / 3. END / 4. CASHADD / 5. CASHOFF / 6. REMDEBT");
             System.out.println("[DEVELOPER HERE, COULD POTENTIALLY HAVE COMMANDS NOT LISTED]\n");
         }
         
         if (cinput.equals("GIVEM")) {
             System.out.println("\nDEVELOPER COMMAND 'GIVEM' USED. +1,000,000.\n");
-            v1.cash += v1.givem;
+            v2.cash += v2.givem;
             Thread.sleep(2000);
             screen.clear();
         }
 
         else if (cinput.equals("REM")) {
             System.out.println("\nDEVELOPER COMMAND 'REM' USED. REMOVING SPIN COSTS.\n");
-            v1.cost -= v1.remcom;
+            v2.cost -= v2.remcom;
             Thread.sleep(2000);
             screen.clear();
         }
 
         else if (cinput.equals("END")) {
             System.out.println("\nDEVELOPER COMMAND 'END' USED. REMOVING ALL CASH FROM WALLET.\n");
-            v1.cash -= v1.endcom;
+            v2.cash -= v2.endcom;
             Thread.sleep(2000);
             screen.clear();
         }
 
         else if (cinput.equals("UP")) {
-            System.out.println("\nDEVELOPER COMMAND 'UP' USED. UPPING COST BY " + v1.upcom + ".\n");
-            v1.cost += v1.upcom;
+            System.out.println("\nDEVELOPER COMMAND 'UP' USED. UPPING COST BY " + v2.upcom + ".\n");
+            v2.cost += v2.upcom;
             Thread.sleep(2000);
             screen.clear();
         }
@@ -46,7 +49,7 @@ public class commands {
             System.out.printf("How much cash to remove from your wallet: ");
             int e = cominput.nextInt();
 
-            v1.cash = v1.cash - e;
+            v2.cash = v2.cash - e;
             System.out.printf("\n");
             Thread.sleep(10000);
             screen.clear();
@@ -58,7 +61,7 @@ public class commands {
             int f = cominput.nextInt();
 
             if (f <= 2000000) {
-                v1.cash = v1.cash + f;
+                v2.cash = v2.cash + f;
                 System.out.printf("\n");
             }
             else if (f >= 2000000) {
@@ -71,6 +74,11 @@ public class commands {
             }
             Thread.sleep(10000);
             screen.clear();
+        }
+
+        else if (cinput.equals("REMDEBT")) {
+            System.out.println("\nDEVELOPER COMMAND 'REMDEBT' USED. REMOVING DEBT.");
+            v2.debt -= v2.debt;
         }
     }
 }

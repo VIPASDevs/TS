@@ -2,22 +2,20 @@
 <= is less than or equal to
 == is equal to*/
 
-//AMOUNT OF DEBUG TOOLS: 6
-//UPDATE THE ABOVE LINE EVERY TIME YOU ADD A DEBUG TOOL.
-
 
 import java.util.Scanner;
 import java.util.Locale;
 
-public class v1 {
+public class v2 {
     public static int jackpot = 1000000;
     public static int earnings = 50;
     public static int cash = 40;
     public static int cost = 2;
     public static int givem = 1000000;
-    public static  int remcom = cost;
+    public static int remcom = cost;
     public static int endcom = 10000000;
     public static int upcom = cost;
+    public static int debt = 5;
 
     public static void main(String[] args) throws InterruptedException {
         Scanner Input = new Scanner(System.in);
@@ -42,6 +40,7 @@ public class v1 {
 
             if (input.equals("S") && cash >= 2) {
                 spin.wins();
+                Thread.sleep(5000);
                 screen.clear();
             }
 
@@ -96,7 +95,7 @@ public class v1 {
                     Thread.sleep(500);
                     System.out.println("\nYou traded your $5 of your total earnings for 40 more dollars.");
                     cash += 40;
-                    earnings -= 5;
+                    earnings -= debt;
                 }
                 else {
                     Thread.sleep(500);

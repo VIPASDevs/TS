@@ -1,46 +1,84 @@
-import java.util.Random;
+//WARNING: THE ARRAY, SHUFFLE, AND CONVERTER IS VIBE CODED (SADLY).
+//WARNING: THE ARRAY, SHUFFLE, AND CONVERTER IS VIBE CODED (SADLY).
+//WARNING: THE ARRAY, SHUFFLE, AND CONVERTER IS VIBE CODED (SADLY).
+//WARNING: THE ARRAY, SHUFFLE, AND CONVERTER IS VIBE CODED (SADLY).
+
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class spin {
     public static void wins() throws InterruptedException {
-        Random random = new Random();
+        String sep = " / ";
+        String jackpot = "0000";
+        String combination1 = "24120";
+        String combination2 = "21300";
+        String combination3 = "54241";
+        String ee1 = "00333";
+        String ee2 = "00777";
 
         Thread.sleep(500);
-        System.out.println("\nTO WIN YOU NEED TO MATCH ALL NUMBERS");
-
-        int number1 = random.nextInt(7);
-        int number2 = random.nextInt(7);
-        int number3 = random.nextInt(7);
-        int number4 = random.nextInt(7);
-        int number5 = random.nextInt(7);
+        System.out.printf("\nWINNING COMBINATIONS: ");
+        System.out.println(combination1 + sep + combination2 + sep + combination3 + sep + jackpot + " IS JACKPOT.");
 
         
-        Thread.sleep(500);
-        System.out.println("NUMBERS: " + number1 + number2 + number3 + number4 + number5);
+        List<Integer> numbers = new ArrayList<>(List.of(0, 1, 2, 3, 4));
+        // Create an ArrayList containing numbers 0 through 4
+        // ArrayList is used because it is mutable (can be shuffled)
+
+        Collections.shuffle(numbers);
+        // Randomly reorder the elements in the list in-place
+        // After this line, "numbers" is in a new random order
 
 
-        if (number1 == number2 && number2 == number3 && number3 == number4 && number4 == number5) {
-            System.out.println("CONGRATULATIONS. You have earned $50.");
-            v1.cash += v1.earnings;
+        // Convert each Integer in the list into a String,
+        // then join all strings together with no separator
+        // Example: [2, 0, 4, 1, 3] -> "20413"
+        String result = numbers.stream()
+            .map(String::valueOf)   // convert Integer -> String
+            .collect(Collectors.joining()); // concatenate everything
+
+
+        if (result == combination1) {
+            System.out.println("CONGRATULATIONS. WON: " + v2.earnings + "\n");
+            v2.cash += v2.earnings;
+        }
+
+        else if (result == combination2) {
+            System.out.println("CONGRATULATIONS. WON: " + v2.earnings + "\n");
+            v2.cash += v2.earnings;
+        }
+
+        else if (result == combination3) {
+            System.out.println("CONGRATULATIONS. WON: " + v2.earnings + "\n");
         }
 
 
-        else if (number1 == 0 && number2 == 0 && number3 == 6 && number4 == 6 && number5 == 6) {
-            System.out.println("WELL WELL WELL WELL WELL WELL WELL WELL... $666 FUNDED ...");
-            v1.cash += 666;
+
+
+
+        else if (result == ee1) {
+            System.out.println("WELL ... W3LL ... 23LL ... 2311 ...\n");
+            v2.cash += 666;
         }
 
+        else if (result == ee2) {
+            System.out.println("4NG31S\n");
+            v2.earnings += 777777;
+            v2.cash += 777;
+        }
 
-        else if (number1 == 0 && number2 == 0 && number3 == 0 && number4 == 0 && number5 == 0) {
-            System.out.println("JACKPOT ... JACKPOT ... PAYOUT: $" + v1.jackpot);
-            v1.cash += v1.jackpot;
+        else if (result == jackpot) {
+            System.out.println("JACKPOT ... JACKPOT ... PAYOUT: $" + v2.jackpot + ".\n");
+            v2.cash += v2.jackpot;
         }
 
 
         else {
-            System.out.println("You loose!\n");
-            v1.cash -= v1.cost;
+            Thread.sleep(500);
+            System.out.println("YOU DID NOT WIN!");
         }
-
-        Thread.sleep(2000);
     }
 }
